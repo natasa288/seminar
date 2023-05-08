@@ -2,6 +2,7 @@ import './App.css';
 import Messages from './components/Messages';
 import React from 'react';
 import Input from "./components/Input";
+import Sidebar from './components/Sidebar';
 
 function randomName() {
  const adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering", "withered", "wild", "black", "young", "holy", "solitary", "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine", "polished", "ancient", "purple", "lively", "nameless"];
@@ -12,42 +13,63 @@ function randomName() {
 }
 
 function randomColor() {
- return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+ return '#' + Math.floor(Math.random() * 0xFFFFFA).toString(16);
 }
 class App extends React.Component {
 
+  constructor() {
+    super();
+    this.drone = new window.Scaledrone("PnFavtIMvMsf69yV", {
+      data: this.state.member
+    });
+    this.drone.on('open', error => {
+      if (error) {
+        return console.error(error);
+      }
+      const member = {...this.state.member};
+      member.id = this.drone.clientId;
+      this.setState({member});
+    });
+ // ---
+    const room = this.drone.subscribe("observable-room");
+ // ---
+    room.on('data', (data, member) => {
+      const messages = this.state.messages;
+      messages.push({member, text: data});
+      this.setState({messages});
+    });
+  }
 
   state = {
-    messages: [
-      {
-        text: "This is a test message!",
-        member: {
-          color: "blue",
-          username: "bluemoon"
-        }
-      }
-    ],
+    messages: [],
     member: {
       username: randomName(),
       color: randomColor()
     }
   }
-
   onSendMessage = (message) => {
-    const messages = this.state.messages
-    messages.push({
-      text: message,
-      member: this.state.member
-    })
-    this.setState({messages: messages})
+    // quick fix for sending empty message
+    if (message.length===0) return;
+    this.drone.publish({
+      room: "observable-room",
+      message
+    });
+  }
+
+  toggleSidebar = () =>{
+    this.sidebar.ToggleSidebar();
   }
 
   render(){
     return (
       <div className="App">
       <div className="App-header">
+        <button className='sidebar-btn' onClick={this.toggleSidebar}>Sidebar</button>
         <h1>Algebra Seminarski Rad</h1>
+        {/* Prazan div služi za flex pozicioniranje elemenata */}
+        <div></div>
       </div>
+      <Sidebar ref={(reference)=> this.sidebar = reference}/>
       <Messages
         messages={this.state.messages}
         currentMember={this.state.member}
@@ -56,6 +78,9 @@ class App extends React.Component {
     </div>
     );
   }
+  
+
+
 }
 
 export default App;
