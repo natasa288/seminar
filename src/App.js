@@ -2,6 +2,7 @@ import './App.css';
 import Messages from './components/Messages';
 import React from 'react';
 import Input from "./components/Input";
+import Sidebar from './components/Sidebar';
 
 function randomName() {
  const adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering", "withered", "wild", "black", "young", "holy", "solitary", "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine", "polished", "ancient", "purple", "lively", "nameless"];
@@ -54,12 +55,21 @@ class App extends React.Component {
       message
     });
   }
+
+  toggleSidebar = () =>{
+    this.sidebar.ToggleSidebar();
+  }
+
   render(){
     return (
       <div className="App">
       <div className="App-header">
+        <button className='sidebar-btn' onClick={this.toggleSidebar}>Sidebar</button>
         <h1>Algebra Seminarski Rad</h1>
+        {/* Prazan div služi za flex pozicioniranje elemenata */}
+        <div></div>
       </div>
+      <Sidebar ref={(reference)=> this.sidebar = reference}/>
       <Messages
         messages={this.state.messages}
         currentMember={this.state.member}
