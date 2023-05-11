@@ -12,9 +12,11 @@ const Login = (props) =>{
         navigate("/");        
     }
     
-    return <div className="container">
+    return (
+      
+    <div className="container">
         <form className="login-form" onSubmit={handleSubmit}>
-            <label for="title">
+            <label htmlFor="title">
                 <h1>Login</h1>
             </label>
             <input 
@@ -26,7 +28,7 @@ const Login = (props) =>{
             onChange={(e)=> setUsernameText(e.target.value)}/>
             <button className="login-btn">Login</button>
         </form>
-    </div>
+    </div>)
 }
 
 export default Login;
