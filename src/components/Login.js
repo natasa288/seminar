@@ -15,19 +15,12 @@ const Login = (props) =>{
     return (
       
     <div className="container">
+        <h1>Login</h1>
         <form className="login-form" onSubmit={handleSubmit}>
-            <label htmlFor="title">
-                <h1>Login</h1>
-            </label>
-            <input 
-            id="title"
-            type="text" 
-            placeholder="Enter your username" 
-            required 
-            value={usernameText} 
-            onChange={(e)=> setUsernameText(e.target.value)}/>
-            <button className="login-btn">Login</button>
-        </form>
+                <label htmlFor="title">Username</label>
+                <input id="title" type="text" required value={usernameText} onChange={(e) => setUsernameText(e.target.value)} />
+                <button className="login-btn">Login</button>
+            </form>
     </div>)
 }
 
