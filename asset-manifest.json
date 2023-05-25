@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/seminar/static/css/main.b76a8713.css",
-    "main.js": "/seminar/static/js/main.f3848bb5.js",
+    "main.css": "/seminar/static/css/main.cfc663dd.css",
+    "main.js": "/seminar/static/js/main.4e99dde1.js",
     "index.html": "/seminar/index.html",
-    "main.b76a8713.css.map": "/seminar/static/css/main.b76a8713.css.map",
-    "main.f3848bb5.js.map": "/seminar/static/js/main.f3848bb5.js.map"
+    "main.cfc663dd.css.map": "/seminar/static/css/main.cfc663dd.css.map",
+    "main.4e99dde1.js.map": "/seminar/static/js/main.4e99dde1.js.map"
   },
   "entrypoints": [
-    "static/css/main.b76a8713.css",
-    "static/js/main.f3848bb5.js"
+    "static/css/main.cfc663dd.css",
+    "static/js/main.4e99dde1.js"
   ]
 }
