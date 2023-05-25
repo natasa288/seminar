@@ -1,0 +1,37 @@
+
+.conatiner{
+   display: flex;
+   margin-top: 30px;
+}
+.conatiner1{
+    flex: 1;
+    background-color: rgb(154, 110, 196);
+    
+}
+
+.conatiner2{
+    margin-top: 40px;
+    flex: 1;
+    
+}
+p {
+    color: whitesmoke;
+    line-height: 1.5;
+    font-size: 18px;
+    margin-left: 20%;
+    
+
+  }
+
+  .p1{
+    color: antiquewhite;
+    font-weight: bold;
+    margin-left: 650px;
+    
+  }
+  .bla{
+    width: 200px;
+    margin-left: 45%;
+    border-radius: 25px;
+    margin-top: 10px;
+  }
