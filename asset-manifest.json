@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/seminar/static/css/main.2bdde316.css",
+    "main.css": "/seminar/static/css/main.6456c296.css",
     "main.js": "/seminar/static/js/main.55838d39.js",
     "static/media/image.jpg": "/seminar/static/media/image.7ece0740dc98214ac692.jpg",
     "index.html": "/seminar/index.html",
-    "main.2bdde316.css.map": "/seminar/static/css/main.2bdde316.css.map",
+    "main.6456c296.css.map": "/seminar/static/css/main.6456c296.css.map",
     "main.55838d39.js.map": "/seminar/static/js/main.55838d39.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bdde316.css",
+    "static/css/main.6456c296.css",
     "static/js/main.55838d39.js"
   ]
 }
